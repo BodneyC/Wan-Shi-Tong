@@ -1,0 +1,68 @@
+Hexadecimal Output
+
+        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f  : 0 1 2 3 4 5 6 7 8 9 a b c d e f
+       ------------------------------------------------ : -------------------------------
+0x000 | eb 52 90 4e 54 46 53 20 20 20 20 00 02 08 00 00 : Î R ê N T F S . . . . . . . . . 
+0x010 | 00 00 00 00 00 f8 00 00 3f 00 ff 00 00 10 cf 0d : . . . . . ¯ . . ? . ˇ . . . œ . 
+0x020 | 00 00 00 00 80 00 80 00 ff 0f 0e 00 00 00 00 00 : . . . . Ä . Ä . ˇ . . . . . . . 
+0x030 | 00 96 00 00 00 00 00 00 02 00 00 00 00 00 00 00 : . ñ . . . . . . . . . . . . . . 
+0x040 | f6 00 00 00 01 00 00 00 a2 d4 3a ce ef 3a ce 08 : ˆ . . . . . . . ¢ ‘ : Œ Ô : Œ . 
+0x050 | 00 00 00 00 fa 33 c0 8e d0 bc 00 7c fb 68 c0 07 : . . . . ˙ 3 ¿ é – º . | ˚ h ¿ . 
+0x060 | 1f 1e 68 66 00 cb 88 16 0e 00 66 81 3e 03 00 4e : . . h f . À à . . . f Å > . . N 
+0x070 | 54 46 53 75 15 b4 41 bb aa 55 cd 13 72 0c 81 fb : T F S u . ¥ A ª ™ U Õ . r . Å ˚ 
+0x080 | 55 aa 75 06 f7 c1 01 00 75 03 e9 dd 00 1e 83 ec : U ™ u . ˜ ¡ . . u . È › . . É Ï 
+0x090 | 18 68 1a 00 b4 48 8a 16 0e 00 8b f4 16 1f cd 13 : . h . . ¥ H ä . . . ã Ù . . Õ . 
+0x0a0 | 9f 83 c4 18 9e 58 1f 72 e1 3b 06 0b 00 75 db a3 : ü É ƒ . û X . r · ; . . . u € £ 
+0x0b0 | 0f 00 c1 2e 0f 00 04 1e 5a 33 db b9 00 20 2b c8 : . . ¡ . . . . . Z 3 € π . . + » 
+0x0c0 | 66 ff 06 11 00 03 16 0f 00 8e c2 ff 06 16 00 e8 : f ˇ . . . . . . . é ¬ ˇ . . . Ë 
+0x0d0 | 4b 00 2b c8 77 ef b8 00 bb cd 1a 66 23 c0 75 2d : K . + » w Ô ∏ . ª Õ . f # ¿ u - 
+0x0e0 | 66 81 fb 54 43 50 41 75 24 81 f9 02 01 72 1e 16 : f Å ˚ T C P A u $ Å ˘ . . r . . 
+0x0f0 | 68 07 bb 16 68 52 11 16 68 09 00 66 53 66 53 66 : h . ª . h R . . h . . f S f S f 
+0x100 | 55 16 16 16 68 b8 01 66 61 0e 07 cd 1a 33 c0 bf : U . . . h ∏ . f a . . Õ . 3 ¿ ø 
+0x110 | 0a 13 b9 f6 0c fc f3 aa e9 fe 01 90 90 66 60 1e : . . π ˆ . ¸ Û ™ È ˛ . ê ê f ` . 
+0x120 | 06 66 a1 11 00 66 03 06 1c 00 1e 66 68 00 00 00 : . f ° . . f . . . . . f h . . . 
+0x130 | 00 66 50 06 53 68 01 00 68 10 00 b4 42 8a 16 0e : . f P . S h . . h . . ¥ B ä . . 
+0x140 | 00 16 1f 8b f4 cd 13 66 59 5b 5a 66 59 66 59 1f : . . . ã Ù Õ . f Y [ Z f Y f Y . 
+0x150 | 0f 82 16 00 66 ff 06 11 00 03 16 0f 00 8e c2 ff : . Ç . . f ˇ . . . . . . . é ¬ ˇ 
+0x160 | 0e 16 00 75 bc 07 1f 66 61 c3 a1 f6 01 e8 09 00 : . . . u º . . f a √ ° ˆ . Ë . . 
+0x170 | a1 fa 01 e8 03 00 f4 eb fd 8b f0 ac 3c 00 74 09 : ° ˙ . Ë . . Ù Î ˝ ã  ¨ < . t . 
+0x180 | b4 0e bb 07 00 cd 10 eb f2 c3 0d 0a 41 20 64 69 : ¥ . ª . . Õ . Î Ú √ . . A . d i 
+0x190 | 73 6b 20 72 65 61 64 20 65 72 72 6f 72 20 6f 63 : s k . r e a d . e r r o r . o c 
+0x1a0 | 63 75 72 72 65 64 00 0d 0a 42 4f 4f 54 4d 47 52 : c u r r e d . . . B O O T M G R 
+0x1b0 | 20 69 73 20 63 6f 6d 70 72 65 73 73 65 64 00 0d : . i s . c o m p r e s s e d . . 
+0x1c0 | 0a 50 72 65 73 73 20 43 74 72 6c 2b 41 6c 74 2b : . P r e s s . C t r l + A l t + 
+0x1d0 | 44 65 6c 20 74 6f 20 72 65 73 74 61 72 74 0d 0a : D e l . t o . r e s t a r t . . 
+0x1e0 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 : . . . . . . . . . . . . . . . . 
+0x1f0 | 00 00 00 00 00 00 8a 01 a7 01 bf 01 00 00 55 aa : . . . . . . ä . ß . ø . . . U ™ 
+
+First three bytes:
+ 0x000: eb 52 90
+Jump instruction to 0x054 (Executable code)
+
+OEM ID: NTFS
+ 0x003: 4e 54 46 53
+
+BIOS Paramter Block Analysis:
+ 0x00b: Bytes per sector:		512 (02 00h)
+ 0x00d: Sectors per cluster:		8 (08h)
+ 0x00e: Reserved/Unused
+ 0x00f: Reserved/Unused
+ 0x010: No. of FATs (0):		0 (00h)
+ 0x011: Max route dir entries:		0 (00 00h)
+ 0x013: FAT small sectors count:	0 (00 00h)
+ 0x015: Media descriptor ID:		f8: Hard disk
+ 0x016: Sectors per FAT:		0 (00 00h)
+ 0x018: Sectors per track:		63 (00 3fh)
+ 0x01a: Number of heads:		255 (00 ffh)
+ 0x01c: No. hidden sectors:		231673856 (0d cf 10 00h)
+ 0x020: Total sector in FAT32:		0 (00 00 00 00h)
+ 0x024: Drive information:		00 80 00 80h
+ 0x028: Total sectors in volume:	921599 (00 00 00 00 00 0e 0f ffh)
+ 0x030: $MFT start cluster:		38400 (00 00 00 00 00 00 96 00h)
+ 0x030: $MFT start cluster mirror:	2 (00 00 00 00 00 00 00 02h)
+ 0x040: Bytes per MFT entry:		1024
+ 0x041: Reserved/Unused
+ 0x048: NTFS volume serial number:	08ce3aefce3ad4a2
+ 0x041: Reserved/Unused
+
+
