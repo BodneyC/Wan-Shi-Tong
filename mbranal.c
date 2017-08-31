@@ -5,7 +5,8 @@
 #include "header.h"
 #define CharSize 1
 
-//mbr specific analysis
+//------------------------------------------------------------------------------------
+
 int mbranalysis (FILE* pmbr, FILE* pdd)
 {
 	int offset = 0x1BE;
@@ -18,7 +19,7 @@ int mbranalysis (FILE* pmbr, FILE* pdd)
 	int RSTcount = 0;
 	int totalpartcount = 0;
 	
-	memset(RSTdec, 0, sizeof RSTdec);
+	memset(RSTdec, 0, (sizeof(long)*2)*127);
 	
 	for(a=0; a<=511; a++)
 	{
@@ -29,16 +30,16 @@ int mbranalysis (FILE* pmbr, FILE* pdd)
 //first two bytes for OS type
 	if ((mbrstring[0] == 0xFA) && (mbrstring[1] == 0x33))
 	{
-		fprintf(pmbr, "\n\nOS Versions DOS 3.1 through Windows 95a");
+		fprintf(pmbr, "\nOS Versions DOS 3.1 through Windows 95a");
 	} else if ((mbrstring[0] == 0x33) && (mbrstring[1] == 0xC0))
 	{
-		fprintf(pmbr, "\n\nOS Versions Windows 95b Onwards");
+		fprintf(pmbr, "\nOS Versions Windows 95b Onwards");
 	} else if ((mbrstring[0] == 0xFA) && (mbrstring[1] == 0xEB))
 	{
-		fprintf(pmbr, "\n\nOS using the Linux Bootloader (LILO)");
+		fprintf(pmbr, "\nOS using the Linux Bootloader (LILO)");
 	} else if ((mbrstring[0] == 0xEB) && (mbrstring[1] == 0x3C))
 	{
-		fprintf(pmbr, "\n\nBoot record for Windows Floppy Disk");
+		fprintf(pmbr, "\nBoot record for Windows Floppy Disk");
 	}
 
 //disk signature
@@ -88,7 +89,8 @@ int mbranalysis (FILE* pmbr, FILE* pdd)
 		} else {
 			totalpartcount++;
 		}
-		RSTdec[partcount-1] = partitionanalysis(mbrstring, partcount, pmbr, pdd);
+		RSTdec[partcount-1][0] = partitionanalysis(mbrstring, partcount, pmbr, pdd);
+		RSTdec[partcount-1][1] = mbrstring[offset+4];
 		offset = offset+0x10;
 		partcount++;
 	}
@@ -96,7 +98,7 @@ int mbranalysis (FILE* pmbr, FILE* pdd)
 //ms_ext
 	if (mbrstring[offset+0x34] == 0x05 || mbrstring[offset+0x34] == 0x0f)
 	{
-		fseek(pdd, ((RSTdec[3]*512)+0x1be), SEEK_SET);
+		fseek(pdd, ((RSTdec[3][0]*512)+0x1be), SEEK_SET);
 		for(a=0; a<=511; a++)
 		{
 			ch = fgetc(pdd);
@@ -109,7 +111,8 @@ int mbranalysis (FILE* pmbr, FILE* pdd)
 			} else {
 				totalpartcount++;
 			}
-			RSTdec[partcount-1] = partitionanalysis(mbrstring, partcount, pmbr, pdd);
+			RSTdec[partcount-1][0] = partitionanalysis(mbrstring, partcount, pmbr, pdd);
+			RSTdec[partcount-1][1] = mbrstring[offset+4];
 			offset = offset+0x10;
 			partcount++;
 		}
@@ -125,8 +128,7 @@ int mbranalysis (FILE* pmbr, FILE* pdd)
 }
 
 
-
-
+//------------------------------------------------------------------------------------
 
 
 long int partitionanalysis(unsigned char mbrstring[], int partcount, FILE* pmbr, FILE *pdd)

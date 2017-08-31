@@ -5,60 +5,54 @@
 #include "header.h"
 #define CharSize 1
 
-//vbr specific analysis
-long vbranalysis (FILE* pvbr, FILE* pdd)
+
+//------------------------------------------------------------------------------------
+
+
+long vbranalysis (FILE* pvbr, FILE* pdd, int secpclus, int bps)
 {
-	
-	
+
+
 	long cMFTdec = 0;
 	long lMFTdec = 0;
-	unsigned char forconv[8] = {0};
 	unsigned char vbrstring[512]; //array of vbr values
 	unsigned char ch; //for fgetc
 	long fromconv = 0;
 	int offset = 0x000;
 	int a = 0;
-	int secpclus;
-	int cfr;
-	
+	int cfr = 0;
+
 	for(a=0; a<=511; a++)
 	{
 		ch = fgetc(pdd);
 		vbrstring[a] = ch;
 	}
-	
+
 	fprintf(pvbr, "\n\nFirst three bytes:\n 0x000: %02x %02x %02x\nJump instruction to 0x054 (Executable code)", vbrstring[0], vbrstring[1], vbrstring[2]);
 	fprintf(pvbr, "\n\nOEM ID: %c%c%c%c\n 0x003: %02x %02x %02x %02x", vbrstring[3], vbrstring[4], vbrstring[5], vbrstring[6], vbrstring[3], vbrstring[4], vbrstring[5], vbrstring[6]);
 	fprintf(pvbr, "\n\nBIOS Paramter Block Analysis:");
-	
+
 	offset = 0x00b;
-	for (a=0; a<2; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 2);
-	fprintf(pvbr, "\n 0x00b: Bytes per sector:\t\t%i (%02x %02xh)", fromconv, vbrstring[0x00c], vbrstring[0x00b]);
-	forconv[0] = vbrstring[offset];
-	secpclus = hextodec(forconv, 1);
+	bps = bytestodec(offset, vbrstring, 2);
+	offset = offset+2;
+	fprintf(pvbr, "\n 0x00b: Bytes per sector:\t\t%i (%02x %02xh)", bps, vbrstring[0x00c], vbrstring[0x00b]);
+
+	secpclus = bytestodec(offset, vbrstring, 1);
+	offset = offset+1;
 	fprintf(pvbr, "\n 0x00d: Sectors per cluster:\t\t%i (%02xh)", secpclus, vbrstring[0x00d]);
 	fprintf(pvbr, "\n 0x00e: Reserved/Unused");
 	fprintf(pvbr, "\n 0x00f: Reserved/Unused");
 	fprintf(pvbr, "\n 0x010: No. of FATs (0):\t\t%i (%02xh)", vbrstring[0x010], vbrstring[0x010]);
 	offset = 0x011;
-	for (a=0; a<2; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 2);	
+
+	fromconv = bytestodec(offset, vbrstring, 2);
+	offset = offset+2;
+
 	fprintf(pvbr, "\n 0x011: Max route dir entries:\t\t%i (%02x %02xh)", fromconv, vbrstring[0x012], vbrstring[0x011]);
-	for (a=0; a<2; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 2);	
+
+	fromconv = bytestodec(offset, vbrstring, 2);
+	offset = offset+2;
+
 	fprintf(pvbr, "\n 0x013: FAT small sectors count:\t%i (%02x %02xh)", fromconv, vbrstring[0x014], vbrstring[0x013]);
 	fprintf(pvbr, "\n 0x015: Media descriptor ID:\t\t%02x: ", vbrstring[0x15]);
 	switch (vbrstring[0x15])
@@ -82,87 +76,66 @@ long vbranalysis (FILE* pvbr, FILE* pdd)
 			fprintf(pvbr, "Type unknown");
 	}
 	offset = 0x016;
-	for (a=0; a<2; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 2);	
+
+	fromconv = bytestodec(offset, vbrstring, 2);
+	offset = offset+2;
 	fprintf(pvbr, "\n 0x016: Sectors per FAT:\t\t%i (%02x %02xh)", fromconv, vbrstring[0x017], vbrstring[0x016]);
-	for (a=0; a<2; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 2);	
+
+	fromconv = bytestodec(offset, vbrstring, 2);
+	offset = offset+2;
 	fprintf(pvbr, "\n 0x018: Sectors per track:\t\t%i (%02x %02xh)", fromconv, vbrstring[0x019], vbrstring[0x018]);
-	for (a=0; a<2; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 2);	
+
+	fromconv = bytestodec(offset, vbrstring, 2);
+	offset = offset+2;
 	fprintf(pvbr, "\n 0x01a: Number of heads:\t\t%i (%02x %02xh)", fromconv, vbrstring[0x01b], vbrstring[0x01a]);
-	for (a=0; a<4; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 4);	
+
+	fromconv = bytestodec(offset, vbrstring, 4);
+	offset = offset+4;
 	fprintf(pvbr, "\n 0x01c: No. hidden sectors:\t\t%i (%02x %02x %02x %02xh)", fromconv, vbrstring[0x01f], vbrstring[0x01e], vbrstring[0x01d], vbrstring[0x01c]);
-	for (a=0; a<4; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 4);	
+
+	fromconv = bytestodec(offset, vbrstring, 4);
+	offset = offset+4;
 	fprintf(pvbr, "\n 0x020: Total sector in FAT32:\t\t%i (%02x %02x %02x %02xh)", fromconv, vbrstring[0x023], vbrstring[0x022], vbrstring[0x021], vbrstring[0x020]);
 	offset = offset + 4;
 	fprintf(pvbr, "\n 0x024: Drive information:\t\t%02x %02x %02x %02xh", vbrstring[0x027], vbrstring[0x026], vbrstring[0x025], vbrstring[0x024]);
-	for (a=0; a<8; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 8);	
+
+	fromconv = bytestodec(offset, vbrstring, 8);
+	offset = offset+8;
 	fprintf(pvbr, "\n 0x028: Total sectors in volume:\t%i (%02x %02x %02x %02x %02x %02x %02x %02xh)", fromconv, vbrstring[0x02f], vbrstring[0x02e], vbrstring[0x02d], vbrstring[0x02c], vbrstring[0x02b], vbrstring[0x02a], vbrstring[0x029], vbrstring[0x028]);
-	for (a=0; a<8; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	cMFTdec = hextodec(forconv, 8);	
+
+	cMFTdec = bytestodec(offset, vbrstring, 8);
+	offset = offset+8;
 	lMFTdec = cMFTdec * secpclus;
 	fprintf(pvbr, "\n 0x030: $MFT start cluster:\t\t%i (%02x %02x %02x %02x %02x %02x %02x %02xh)", cMFTdec, vbrstring[0x037], vbrstring[0x036], vbrstring[0x035], vbrstring[0x034], vbrstring[0x033], vbrstring[0x032], vbrstring[0x031], vbrstring[0x030]);
 	offset = 0x38;
-	for (a=0; a<8; a++)
-	{
-		forconv[a] = vbrstring[offset];
-		offset++;
-	}
-	fromconv = hextodec(forconv, 8);	
+
+	fromconv = bytestodec(offset, vbrstring, 8);
+	offset = offset+8;
 	fprintf(pvbr, "\n 0x030: $MFT start cluster mirror:\t%i (%02x %02x %02x %02x %02x %02x %02x %02xh)", fromconv, vbrstring[0x03f], vbrstring[0x03e], vbrstring[0x03d], vbrstring[0x03c], vbrstring[0x03b], vbrstring[0x03a], vbrstring[0x039], vbrstring[0x038]);
 	offset = 0x40;
-	forconv[0] = vbrstring[offset];
-	cfr = hextodec(forconv, 1);
+
+	cfr = bytestodec(offset, vbrstring, 1);
+	offset = offset+1;
 	if (vbrstring[40] <= 0x7f)
 	{
 		fprintf(pvbr, "\n 0x040: Clusters per MFT entry:\t\t%i", cfr);
 	}else{
-		cfr = bytetobit(cfr); 
+		cfr = bytetobit(cfr);
 		fprintf(pvbr, "\n 0x040: Bytes per MFT entry:\t\t%i", cfr);
 	}
 	fprintf(pvbr, "\n 0x041: Reserved/Unused");
 	fprintf(pvbr, "\n 0x048: NTFS volume serial number:\t");
 	offset = 0x4f;
-	for (a=0; a<8; a++)
-	{
-		fprintf (pvbr, "%02x", vbrstring[offset]);
-		offset--;
-	}
+
+	fromconv = bytestodec(offset, vbrstring, 8);
+
+
+	//do dis shit right here
+
+	offset = offset+8;
 	offset = 0x50;
 	fprintf(pvbr, "\n 0x041: Reserved/Unused\n\n\n");
-	
-	
+
+
 	return lMFTdec;
 }

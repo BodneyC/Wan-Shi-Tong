@@ -62,7 +62,7 @@ BIOS Paramter Block Analysis:
  0x030: $MFT start cluster mirror:	2 (00 00 00 00 00 00 00 02h)
  0x040: Bytes per MFT entry:		1024
  0x041: Reserved/Unused
- 0x048: NTFS volume serial number:	14ac8784ac875edc
+ 0x048: NTFS volume serial number:	
  0x041: Reserved/Unused
 
 

@@ -1,0 +1,81 @@
+Hexadecimal Output
+
+        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f  : 0 1 2 3 4 5 6 7 8 9 a b c d e f
+       ------------------------------------------------ : -------------------------------
+0x000 | 33 c0 8e d0 bc 00 7c 8e c0 8e d8 be 00 7c bf 00 : 3 ¿ é – º . | é ¿ é ÿ æ . | ø . 
+0x010 | 06 b9 00 02 fc f3 a4 50 68 1c 06 cb fb b9 04 00 : . π . . ¸ Û § P h . . À ˚ π . . 
+0x020 | bd be 07 80 7e 00 00 7c 0b 0f 85 0e 01 83 c5 10 : Ω æ . Ä ~ . . | . . Ö . . É ≈ . 
+0x030 | e2 f1 cd 18 88 56 00 55 c6 46 11 05 c6 46 10 00 : ‚ Ò Õ . à V . U ∆ F . . ∆ F . . 
+0x040 | b4 41 bb aa 55 cd 13 5d 72 0f 81 fb 55 aa 75 09 : ¥ A ª ™ U Õ . ] r . Å ˚ U ™ u . 
+0x050 | f7 c1 01 00 74 03 fe 46 10 66 60 80 7e 10 00 74 : ˜ ¡ . . t . ˛ F . f ` Ä ~ . . t 
+0x060 | 26 66 68 00 00 00 00 66 ff 76 08 68 00 00 68 00 : & f h . . . . f ˇ v . h . . h . 
+0x070 | 7c 68 01 00 68 10 00 b4 42 8a 56 00 8b f4 cd 13 : | h . . h . . ¥ B ä V . ã Ù Õ . 
+0x080 | 9f 83 c4 10 9e eb 14 b8 01 02 bb 00 7c 8a 56 00 : ü É ƒ . û Î . ∏ . . ª . | ä V . 
+0x090 | 8a 76 01 8a 4e 02 8a 6e 03 cd 13 66 61 73 1c fe : ä v . ä N . ä n . Õ . f a s . ˛ 
+0x0a0 | 4e 11 75 0c 80 7e 00 80 0f 84 8a 00 b2 80 eb 84 : N . u . Ä ~ . Ä . Ñ ä . ≤ Ä Î Ñ 
+0x0b0 | 55 32 e4 8a 56 00 cd 13 5d eb 9e 81 3e fe 7d 55 : U 2 ‰ ä V . Õ . ] Î û Å > ˛ } U 
+0x0c0 | aa 75 6e ff 76 00 e8 8d 00 75 17 fa b0 d1 e6 64 : ™ u n ˇ v . Ë ç . u . ˙ ∞ — Ê d 
+0x0d0 | e8 83 00 b0 df e6 60 e8 7c 00 b0 ff e6 64 e8 75 : Ë É . ∞ ﬂ Ê ` Ë | . ∞ ˇ Ê d Ë u 
+0x0e0 | 00 fb b8 00 bb cd 1a 66 23 c0 75 3b 66 81 fb 54 : . ˚ ∏ . ª Õ . f # ¿ u ; f Å ˚ T 
+0x0f0 | 43 50 41 75 32 81 f9 02 01 72 2c 66 68 07 bb 00 : C P A u 2 Å ˘ . . r , f h . ª . 
+0x100 | 00 66 68 00 02 00 00 66 68 08 00 00 00 66 53 66 : . f h . . . . f h . . . . f S f 
+0x110 | 53 66 55 66 68 00 00 00 00 66 68 00 7c 00 00 66 : S f U f h . . . . f h . | . . f 
+0x120 | 61 68 00 00 07 cd 1a 5a 32 f6 ea 00 7c 00 00 cd : a h . . . Õ . Z 2 ˆ Í . | . . Õ 
+0x130 | 18 a0 b7 07 eb 08 a0 b6 07 eb 03 a0 b5 07 32 e4 : . † ∑ . Î . † ∂ . Î . † µ . 2 ‰ 
+0x140 | 05 00 07 8b f0 ac 3c 00 74 09 bb 07 00 b4 0e cd : . . . ã  ¨ < . t . ª . . ¥ . Õ 
+0x150 | 10 eb f2 f4 eb fd 2b c9 e4 64 eb 00 24 02 e0 f8 : . Î Ú Ù Î ˝ + … ‰ d Î . $ . ‡ ¯ 
+0x160 | 24 02 c3 49 6e 76 61 6c 69 64 20 70 61 72 74 69 : $ . √ I n v a l i d . p a r t i 
+0x170 | 74 69 6f 6e 20 74 61 62 6c 65 00 45 72 72 6f 72 : t i o n . t a b l e . E r r o r 
+0x180 | 20 6c 6f 61 64 69 6e 67 20 6f 70 65 72 61 74 69 : . l o a d i n g . o p e r a t i 
+0x190 | 6e 67 20 73 79 73 74 65 6d 00 4d 69 73 73 69 6e : n g . s y s t e m . M i s s i n 
+0x1a0 | 67 20 6f 70 65 72 61 74 69 6e 67 20 73 79 73 74 : g . o p e r a t i n g . s y s t 
+0x1b0 | 65 6d 00 00 00 63 7b 9a 2b 98 d3 41 00 00 80 20 : e m . . . c { ö + ò ” A . . Ä . 
+0x1c0 | 21 00 07 df 13 0c 00 08 00 00 00 20 03 00 00 df : ! . . ﬂ . . . . . . . . . . . ﬂ 
+0x1d0 | 14 0c 07 fe ff ff 00 28 03 00 00 e8 cb 0d 00 fe : . . . ˛ ˇ ˇ . ( . . . Ë À . . ˛ 
+0x1e0 | ff ff 27 fe ff ff 00 10 cf 0d 00 10 0e 00 00 00 : ˇ ˇ ' ˛ ˇ ˇ . . œ . . . . . . . 
+0x1f0 | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 55 aa : . . . . . . . . . . . . . . U ™ 
+OS Versions Windows 95b Onwards
+Disk Signature: 2b 98 d3 41 (00 00)
+
+Partition Analysis:
+
+The first partition is bootable
+Partition 1, Bootable Partition Analysis:
+Physical Disk Location (CHS)
+ Start cylinder: 0
+ Start head: 33
+ Start sector: 32
+ Ending cylinder: 12
+ Ending head: 19
+ Ending sector: 223
+Partition type 07, NTFS
+Relative start sector: 2048
+Total Sectors: 204800
+
+Partition 2 Analysis:
+Physical Disk Location (CHS)
+ Start cylinder: 12
+ Start head: 20
+ Start sector: 223
+ Ending cylinder: 255
+ Ending head: 255
+ Ending sector: 254
+Partition type 07, NTFS
+Relative start sector: 206848
+Total Sectors: 231467008
+
+Partition 3 Analysis:
+Physical Disk Location (CHS)
+ Start cylinder: 255
+ Start head: 255
+ Start sector: 254
+ Ending cylinder: 255
+ Ending head: 255
+ Ending sector: 254
+Partition type 27, Windows Recovery (Hidden)
+Relative start sector: 231673856
+Total Sectors: 921600
+
+Partition 4 is not in use (empty)
+
+No additional partitions (MBR extended)
