@@ -4,9 +4,6 @@
 #include <stdbool.h>
 
 #include "header.h"
-#include "conversions.c"
-#include "mbranal.c"
-#include "vbranal.c"
 
 #define CharSize 1
 
